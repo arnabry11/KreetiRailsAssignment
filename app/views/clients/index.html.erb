@@ -1,0 +1,18 @@
+<%= link_to "Register new Client", new_client_path, class: "btn btn-primary" %>
+<br><br>
+<%= form_tag({controller: "clients", action: "index"}, method: :get) do %>
+  <p>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Clients..." %>
+    <%= submit_tag "Search Clients" %>
+  </p>
+<% end %>
+
+<br><br>
+
+<% @clients.each do |client| %>
+  <div class="card card-body bg-light">
+    <h3><%= client.name %></h3>
+    <p><%= client.email%></p>
+    <%= link_to "Details", client_path(client), :class => "btn btn-outline-secondary"%>
+  </div>
+<% end %>

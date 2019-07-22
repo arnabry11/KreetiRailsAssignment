@@ -1,5 +1,12 @@
-<h1>Hello  INdex</h1>
+<h1>Welcome</h1>
 
 
-<%= link_to "Download CSV", home_index_path(format: :csv), method: :get, class: "btn btn-primary" %>
-<%= link_to "Download PDF", home_index_path(format: :pdf), method: :get, class: "btn btn-primary" %>
+<%= link_to "Download CSV", root_path(format: :csv), method: :get, class: "btn btn-primary" %>
+<%= link_to "Download PDF", root_path(format: :pdf), method: :get, class: "btn btn-primary" %>
+<%= link_to "Send Email", home_send_email_path, method: :get, class: "btn btn-danger" %>
+<br><br>
+<%= link_to "For UPLOADING IMAGE Click Here", new_image_path, method: :get %>
+<br><br>
+<%= link_to "View All Images", images_path, class: "btn btn-primary" %>
+<br><br>
+<%= link_to "For Accessing Client Model Section Click Here", clients_path, method: :get %>

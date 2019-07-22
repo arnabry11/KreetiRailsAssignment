@@ -11,5 +11,10 @@
 
   <body>
     <%= yield %>
+    <br>
+    <% flash.each do |name, msg| %>
+      <br><br>
+      <%= content_tag :div, msg, class: "alert alert-info" %>
+    <% end %>
   </body>
 </html>

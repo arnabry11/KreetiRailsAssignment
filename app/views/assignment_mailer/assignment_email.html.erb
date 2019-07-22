@@ -1,0 +1,9 @@
+<h1> These are the student records as per your request </h1>
+<table class="table table-bordered">
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= student.name %></td>  <td> <%= student.email %> </td> <td> <%= student.phone_number%></td>
+    </tr>
+  <% end %>
+
+</table>

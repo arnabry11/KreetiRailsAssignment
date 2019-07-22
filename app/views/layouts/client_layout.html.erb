@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KreetiRailsAssignment_Client_Section</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1>Client CRUD Operation Section</h1>
+    <% flash.each do |name, msg| %>
+      <br>
+      <%= content_tag :div, msg, class: "alert alert-info" %>
+      <br>
+    <% end %>
+
+    <br>
+
+    <%= link_to "Main Home Page", root_path, method: :get, class: 'btn btn-secondary' %>
+    <%= link_to "Client Home Page", clients_path, method: :get, class: 'btn btn-secondary' %>
+
+    <br><br>
+    
+    <%= yield %>
+    
+  </body>
+</html>
