@@ -1,3 +1,5 @@
+<%= link_to "Main Home Page", root_path, method: :get, class: 'btn btn-primary' %>
+<br><br>
 <% @images.each do |img|%>
 <%= link_to image_tag(img.assignment_image.url(:medium)), img.assignment_image.url(:original) %>
 <% end %>

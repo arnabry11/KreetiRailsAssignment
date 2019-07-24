@@ -1,3 +1,5 @@
+<%= link_to "Main Home Page", root_path, method: :get, class: 'btn btn-danger' %>
+<br><br>
 <%= form_with model: @image, html: { multipart: true } do |form| %>
   <%= form.file_field :assignment_image %>
   <%= form.submit %>

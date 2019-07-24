@@ -27,6 +27,7 @@ gem 'prawn'
 gem "paperclip", "~> 6.0.0"
 gem "letter_opener", :group => :development
 gem 'prawn-table'
+gem 'faker', '~> 1.6', '>= 1.6.3'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
