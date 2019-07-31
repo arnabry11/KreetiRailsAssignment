@@ -5,7 +5,7 @@ class ImagesController < ApplicationController
   end
 
   def new 
-    @image=Image.new
+    @image=Image.new()
   end
 
   def create
@@ -14,15 +14,15 @@ class ImagesController < ApplicationController
       flash[:notice] = "Successfully added new photo!"
       redirect_to root_path
     else
-      flash[:alert] = "Error adding new photo!"
-      redirect_to home_upload_image_path
+      flash.now[:alert] = "Error adding new photo!"
+      render "new"
     end
   end
 
   private
 
   def image_params
-    params.require(:image).permit(:assignment_image)
+    params.require(:image).permit(:assignment_image) if params[:image]
   end
   
 end

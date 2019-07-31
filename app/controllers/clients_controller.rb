@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  
   layout "client_layout"
 
   def index
@@ -17,7 +18,7 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @client = Client.new()
+   @client = Client.new()
   end
 
   def edit 
@@ -30,8 +31,8 @@ class ClientsController < ApplicationController
       flash[:notice] = "New Client Created" 
       redirect_to @client
     else
-      flash[:notice] = "FAILED to create New Client " 
-      render 'new'
+      flash.now[:notice] = "FAILED to create New Client" 
+      render "new"
     end
   end
 
@@ -42,8 +43,8 @@ class ClientsController < ApplicationController
       flash[:notice] = "Client Info Successfully Edited" 
       redirect_to @client
     else
-      flash[:notice] = "FAILED to Update Client Info" 
-      render 'edit'
+      flash.now[:notice] = "FAILED to Update Client Info" 
+      render "edit"
     end
   end
 

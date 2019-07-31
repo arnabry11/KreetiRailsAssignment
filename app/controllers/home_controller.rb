@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
 
   def send_email 
-    @students= User.select(:name, :email, :phone_number).limit(50).order(:name)
+    @students= get_50_records("Student")
     AssignmentMailer.assignment_email("rarnab021@gmail.com", @students).deliver
     flash[:notice] = "You have sent an email."
     redirect_to root_path
@@ -17,13 +17,17 @@ class HomeController < ApplicationController
 
   private
 
+  def get_50_records(model_name)
+    return model_name.constantize.select(:name, :email, :phone_number).limit(50).order(:name)
+  end
+
   def get_csv
-    @users= User.select(:name, :email, :phone_number).limit(50).order(:name) 
+    @users= get_50_records("User")
     @users.to_csv
   end
 
   def get_pdf 
-    @employees = Employee.select(:name, :email, :phone_number).limit(50).order(:name)
+    @employees = get_50_records("Employee")
     pdf = EmployeePdf.new(@employees)
     pdf.render
   end

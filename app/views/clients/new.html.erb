@@ -1,18 +1,25 @@
 <h2>New Client Registration </h2>
 
-<%= form_with model: @client do |form| %>
+<%= form_for :client, url: clients_path do |form| %>
+
+  <% if @client.errors.any? %>
+    <% @client.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
+    <%end%>
+  <%end%>
+
 <p>
   <%= form.label :name%><br>
-  <%= form.text_field :name%>  
+  <%= form.text_field :name, type: "text", class: "form-control", placeholder: "Enter Name", required: true %>  
 </p>
 
 <p>
   <%= form.label :email%><br>
-  <%= form.text_field :email%>  
+  <%= form.text_field :email, type: "email", class: "form-control", placeholder: "Enter email", required: true %>  
 </p>
 
 <p>
-  <%=form.submit({:class => "btn btn-primary"})%>
+  <%=form.submit({ class: "btn btn-primary"})%>
 </p>
 
 <% end %>

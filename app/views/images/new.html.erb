@@ -1,6 +1,13 @@
-<%= link_to "Main Home Page", root_path, method: :get, class: 'btn btn-danger' %>
+<%= link_to "Main Home Page", root_path, method: :get, class: "btn btn-danger" %>
 <br><br>
-<%= form_with model: @image, html: { multipart: true } do |form| %>
-  <%= form.file_field :assignment_image %>
-  <%= form.submit %>
+<%= form_for :image, url: images_path, html: { multipart: true } do |form| %>
+
+  <% if @image.errors.any? %>
+    <% @image.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
+    <%end%>
+  <%end%>
+
+  <%= form.file_field :assignment_image, required: true %>
+  <%= form.submit({ class: "btn btn-dark" }) %>
 <% end %>

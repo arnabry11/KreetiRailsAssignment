@@ -13,23 +13,17 @@
 ActiveRecord::Schema.define(version: 2019_07_19_101024) do
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name", null: false
+    t.string "email", null: false
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "phone_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "assignment_image_file_name"
     t.string "assignment_image_content_type"
     t.integer "assignment_image_file_size"
@@ -40,16 +34,12 @@ ActiveRecord::Schema.define(version: 2019_07_19_101024) do
     t.string "name"
     t.string "email"
     t.string "phone_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "phone_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
